@@ -2,6 +2,7 @@ import TrendingList from 'components/TrendingList';
 import { fetchApi } from 'Helpers/fetchApi';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Main } from './Home.styled';
 
 export const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -20,7 +21,7 @@ export const Home = () => {
 
   return (
     <>
-      <main>{movies.length && <TrendingList movies={movies} />}</main>
+      <Main>{movies.length && <TrendingList movies={movies} />}</Main>
     </>
   );
 };

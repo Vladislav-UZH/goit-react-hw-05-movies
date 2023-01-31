@@ -1,21 +1,14 @@
 import TrendingItem from './TrendingItem';
-
+import { List } from './TrendingList.styled';
 const TrendingList = ({ movies }) => {
   console.log(movies);
   return (
-    <ul
-      style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-        flexGrow: 1,
-      }}
-    >
+    <List>
       {' '}
       {movies.map(({ poster_path, id, overview, title }) => {
         return <TrendingItem key={id} poster={poster_path} title={title} />;
       })}
-    </ul>
+    </List>
   );
 };
 export default TrendingList;
