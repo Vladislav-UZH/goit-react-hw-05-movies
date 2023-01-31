@@ -12,6 +12,7 @@ const Container = styled.div`
 const Header = styled.header`
   padding: 40px 0;
   background-color: #32343b;
+  border-bottom: 1px solid #e2580a;
 `;
 const FlexWrapper = styled.div`
   display: flex;
@@ -56,7 +57,6 @@ const StyledLink = styled(NavLink)`
   }
   &.active {
     color: #e2580a;
-    transform: scale(1.1);
   }
   &.active::after {
     transform: scaleX(1);

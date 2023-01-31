@@ -1,7 +1,11 @@
 import { FiFilm } from 'react-icons/fi';
 import { Routes, Route } from 'react-router-dom';
-import { Home } from 'Pages/Home';
-import { Movies } from 'Pages/Movies';
+import { Home } from 'Pages/Home/Home';
+import { Movies } from 'Pages/Movies/Movies';
+import { MovieDetails } from 'Pages/MovieDetails/MovieDetails';
+import { NotFound } from 'Pages/NotFound/NotFound';
+import Cast from 'components/Cast';
+import Reviews from 'components/Reviews';
 import {
   Container,
   Header,
@@ -11,6 +15,7 @@ import {
   LogoWrapper,
   LogoLink,
 } from './App.styled';
+
 export const App = () => {
   return (
     <>
@@ -25,7 +30,7 @@ export const App = () => {
             </LogoWrapper>
             <Nav>
               <StyledLink to="/">Home</StyledLink>
-              <StyledLink to="/Movies">Movies</StyledLink>
+              <StyledLink to="/movies">Movies</StyledLink>
             </Nav>
           </FlexWrapper>
         </Container>
@@ -33,7 +38,11 @@ export const App = () => {
       <Container>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Movies" element={<Movies />}></Route>
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/movies/:movieId" element={<MovieDetails />} />
+          <Route path="/movies/:movieId/cast" element={<Cast />} />
+          <Route path="/movies/:movieId/reviews" element={<Reviews />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Container>
     </>
