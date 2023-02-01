@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Item = styled.li`
@@ -7,6 +8,12 @@ const Thumb = styled.div`
   margin: 0;
   width: 365px;
   height: 450px;
+`;
+const MovieLink = styled(NavLink)`
+  &:hover,
+  :focus {
+    transform: scale(1.2);
+  }
 `;
 const FilmWrapper = styled.div`
   padding: 20px 20px;
@@ -18,4 +25,4 @@ const Title = styled.p`
   font-weight: 600;
   color: #e2580a;
 `;
-export { Thumb, Item, FilmWrapper, Title };
+export { Thumb, Item, FilmWrapper, Title, MovieLink };

@@ -1,18 +1,24 @@
-import { NavLink, useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 
-import { Item, Thumb, FilmWrapper, Title } from './TrendingItem.styled';
-const TrendingItem = ({ poster, title }) => {
-  useParams();
+import {
+  Item,
+  Thumb,
+  FilmWrapper,
+  Title,
+  MovieLink,
+} from './TrendingItem.styled';
+const TrendingItem = ({ poster, title, id }) => {
+  // const { movieId } = useParams();
   return (
     <Item>
-      <NavLink to="/movies/:id">
+      <MovieLink to={`/movies/${id}`}>
         <Thumb>
           <img src={`https://image.tmdb.org/t/p/w400/${poster}`} alt="" />
         </Thumb>
         <FilmWrapper>
-          <Title>{title}</Title>
+          <Title>"{title}"</Title>
         </FilmWrapper>
-      </NavLink>
+      </MovieLink>
     </Item>
   );
 };

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const ThumbGif = styled.div`
   margin: 20px auto 0 auto;
-  width: 800px;
+  max-width: 800px;
   height: 450px;
   /* /* height: 600px; */
   background: no-repeat cover;
