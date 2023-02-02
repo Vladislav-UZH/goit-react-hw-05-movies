@@ -1,3 +1,4 @@
+import Image from 'components/Image';
 import { fetchMovieDetsById } from 'Helpers/fetchApi';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -17,24 +18,25 @@ const Cast = () => {
     };
     getCastInfo();
   }, [movieId]);
-  // console.log(casting);
   return (
     <ul>
-      {casting.cast.map(({ name, character, profile_path }) => {
-        return (
-          <li key={name}>
-            <div>
-              <img
-                src={`https://image.tmdb.org/t/p/w400/${profile_path}`}
+      {casting &&
+        casting.cast.map(({ name, character, profile_path }) => {
+          return (
+            <li key={name}>
+              <Image
+                imgLink={profile_path}
                 alt={name}
+                size={{ width: '365px', height: '450px' }}
               />
-            </div>
-            <p>{name}</p>
-            <span>{character}</span>
-          </li>
-        );
-      })}
+
+              <p>{name}</p>
+              <span>{character}</span>
+            </li>
+          );
+        })}
     </ul>
   );
 };
+
 export default Cast;
