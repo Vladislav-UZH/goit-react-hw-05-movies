@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import TrendingItem from './TrendingItem';
 import { List } from './TrendingList.styled';
 const TrendingList = ({ movies }) => {
@@ -10,5 +11,14 @@ const TrendingList = ({ movies }) => {
       })}
     </List>
   );
+};
+TrendingList.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      poster_path: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+    }).isRequired
+  ).isRequired,
 };
 export default TrendingList;

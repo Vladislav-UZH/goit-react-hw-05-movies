@@ -59,8 +59,8 @@ export const MovieDetails = () => {
             <li>
               <NavLink to={`reviews`}>Reviews</NavLink>
             </li>
-            <Outlet />
           </ul>
+          <Outlet />
         </div>
       </div>
     </main>

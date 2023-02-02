@@ -17,7 +17,24 @@ const Cast = () => {
     };
     getCastInfo();
   }, [movieId]);
-
-  return <div>hadsgzg</div>;
+  // console.log(casting);
+  return (
+    <ul>
+      {casting.cast.map(({ name, character, profile_path }) => {
+        return (
+          <li key={name}>
+            <div>
+              <img
+                src={`https://image.tmdb.org/t/p/w400/${profile_path}`}
+                alt={name}
+              />
+            </div>
+            <p>{name}</p>
+            <span>{character}</span>
+          </li>
+        );
+      })}
+    </ul>
+  );
 };
 export default Cast;

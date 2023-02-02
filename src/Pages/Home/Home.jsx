@@ -4,7 +4,6 @@ import TrendingList from 'components/TrendingList';
 import { fetchDayTrend } from 'Helpers/fetchApi';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { Main } from './Home.styled';
 
 export const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -26,16 +25,14 @@ export const Home = () => {
 
   return (
     <>
-      <Main>
-        {isLoading ? <Loader /> : <TrendingList movies={movies} />}
+      {isLoading ? <Loader /> : <TrendingList movies={movies} />}
 
-        {/* {true && <Loader />}
+      {/* {true && <Loader />}
         {!!movies.length ? (
           <TrendingList movies={movies} />
         ) : (
           <Notification title="Nothing here.. Try again later!" />
         )} */}
-      </Main>
     </>
   );
 };

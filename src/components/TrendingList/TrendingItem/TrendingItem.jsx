@@ -1,5 +1,3 @@
-// import { useParams } from 'react-router-dom';
-
 import {
   Item,
   Thumb,
@@ -8,7 +6,6 @@ import {
   MovieLink,
 } from './TrendingItem.styled';
 const TrendingItem = ({ poster, title, id }) => {
-  // const { movieId } = useParams();
   return (
     <Item>
       <MovieLink to={`/movies/${id}`}>

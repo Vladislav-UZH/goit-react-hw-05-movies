@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
+
 const delay = `300ms`;
 const globalAnim = `
     cubic-bezier(.06,.57,.52,.97) ${delay}
@@ -68,6 +69,9 @@ const StyledLink = styled(NavLink)`
     color: #e2580a;
   }
 `;
+const Main = styled.main`
+  padding: 80px 0;
+`;
 export {
   Container,
   Header,
@@ -76,6 +80,7 @@ export {
   FlexWrapper,
   LogoWrapper,
   LogoLink,
+  Main,
 };
 // 22232B
 // 32343B
