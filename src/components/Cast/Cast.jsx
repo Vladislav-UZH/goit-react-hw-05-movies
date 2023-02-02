@@ -27,7 +27,7 @@ const Cast = () => {
               <Image
                 imgLink={profile_path}
                 alt={name}
-                size={{ width: '365px', height: '450px' }}
+                size={{ width: 365, height: 450 }}
               />
 
               <p>{name}</p>

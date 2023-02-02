@@ -7,7 +7,7 @@ const MovieItem = ({ poster, title, id }) => {
         <Image
           imgLink={poster}
           alt={title}
-          size={{ width: '365px', height: '450px' }}
+          size={{ width: 365, height: 450 }}
         />
 
         <FilmWrapper>
