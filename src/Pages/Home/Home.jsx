@@ -1,6 +1,6 @@
 import Loader from 'components/Loader';
 // import Notification from 'components/Notification';
-import TrendingList from 'components/TrendingList';
+import TrendingList from 'components/MovieList';
 import { fetchDayTrend } from 'Helpers/fetchApi';
 import { useEffect } from 'react';
 import { useState } from 'react';

@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { ButtonStyled } from './Button.styled';
 const Button = ({
   type = 'button',
   text = 'Search',
@@ -6,9 +7,9 @@ const Button = ({
   children,
 }) => {
   return (
-    <Button type={type} variant={variant}>
-      {text} {children}{' '}
-    </Button>
+    <ButtonStyled type={type} variant={variant}>
+      {text} {children}
+    </ButtonStyled>
   );
 };
 Button.propTypes = {

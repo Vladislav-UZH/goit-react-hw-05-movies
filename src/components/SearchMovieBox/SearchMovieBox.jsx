@@ -1,13 +1,24 @@
 import Button from 'components/Button';
 import PropTypes from 'prop-types';
 
-const SearchMovieBox = ({ value, onChange }) => {
-  console.log('maybe here');
+const SearchMovieBox = ({ value, onSubmit, onChange }) => {
   return (
-    <form>
+    <form
+      onSubmit={e => {
+        e.preventDefault();
+        const form = e.currentTarget;
+        const value = form.elements.movieName.value;
+        return onSubmit(value);
+      }}
+    >
       <label>
         Enter name of your movie
-        <input type="text" value={value} onChange={onChange} />
+        <input
+          name="movieName"
+          type="text"
+          value={value}
+          onChange={e => onChange(e.target.value)}
+        />
       </label>
       <Button type="submit" variant="default" text="Search" />
     </form>
