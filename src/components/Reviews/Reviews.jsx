@@ -7,15 +7,18 @@ const Reviews = () => {
   const { movieId } = useParams();
 
   useEffect(() => {
+    const controller = new AbortController();
+    const option = { signal: controller.signal };
     const getReviewsData = async () => {
       try {
-        const resp = await fetchMovieDetsById(movieId, '/reviews');
+        const resp = await fetchMovieDetsById(movieId, '/reviews', option);
         setReview(resp.results);
         console.log(resp.results);
       } catch (err) {
         console.log(err);
       }
     };
+    controller.abort();
     getReviewsData();
   }, [movieId]);
   return (

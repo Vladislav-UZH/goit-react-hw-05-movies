@@ -17,8 +17,8 @@ export const Movies = () => {
   const getMovieByName = async name => {
     console.log(name);
     try {
+      updateQueryString(name);
       const serialized = name.toLowerCase().trim();
-
       const resp = await fetchMovieByQuery(serialized);
       setMovies(resp.results);
     } catch (error) {
@@ -29,11 +29,7 @@ export const Movies = () => {
 
   return (
     <>
-      <SearchMovieBox
-        value={movieName}
-        onSubmit={getMovieByName}
-        onChange={updateQueryString}
-      />
+      <SearchMovieBox value={movieName} onSubmit={getMovieByName} />
       {movies && <MovieList movies={movies} />}
     </>
   );

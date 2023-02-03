@@ -1,7 +1,7 @@
 import Button from 'components/Button';
 import PropTypes from 'prop-types';
 
-const SearchMovieBox = ({ value, onSubmit, onChange }) => {
+const SearchMovieBox = ({ onSubmit }) => {
   return (
     <form
       onSubmit={e => {
@@ -13,19 +13,13 @@ const SearchMovieBox = ({ value, onSubmit, onChange }) => {
     >
       <label>
         Enter name of your movie
-        <input
-          name="movieName"
-          type="text"
-          value={value}
-          onChange={e => onChange(e.target.value)}
-        />
+        <input name="movieName" type="text" />
       </label>
       <Button type="submit" variant="default" text="Search" />
     </form>
   );
 };
 SearchMovieBox.propTypes = {
-  value: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };
 export default SearchMovieBox;

@@ -8,14 +8,17 @@ const Cast = () => {
   const [casting, setCasting] = useState(null);
   const { movieId } = useParams();
   useEffect(() => {
+    const controller = new AbortController();
+    const option = { signal: controller.signal };
     const getCastInfo = async () => {
       try {
-        const resp = await fetchMovieDetsById(movieId, `/credits`);
+        const resp = await fetchMovieDetsById(movieId, `/credits`, option);
         setCasting(resp);
       } catch (error) {
         console.log(error);
       }
     };
+    // controller.abort();
     getCastInfo();
   }, [movieId]);
   return (
