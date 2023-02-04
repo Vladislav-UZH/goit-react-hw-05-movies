@@ -5,7 +5,7 @@ import { fetchDayTrend } from 'Helpers/fetchApi';
 import { useEffect } from 'react';
 import { useState } from 'react';
 
-export const Home = () => {
+const Home = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   useEffect(() => {
@@ -36,3 +36,4 @@ export const Home = () => {
     </>
   );
 };
+export default Home;

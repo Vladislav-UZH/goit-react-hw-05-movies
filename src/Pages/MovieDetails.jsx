@@ -5,13 +5,12 @@ import { useEffect, useRef } from 'react';
 import { useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 
-export const MovieDetails = () => {
+const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState(null);
   const { movieId } = useParams();
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
   const locRef = useRef(backLinkHref);
-  console.log(location.state);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -19,14 +18,13 @@ export const MovieDetails = () => {
     const getMovieDetails = async () => {
       try {
         const resp = await fetchMovieDetsById(movieId, option);
-        console.log(resp);
         setMovieDetails(resp);
       } catch (error) {
         console.log(error);
       }
     };
-    // controller.abort();
     getMovieDetails();
+    return () => controller.abort();
   }, [movieId]);
 
   return (
@@ -44,3 +42,4 @@ export const MovieDetails = () => {
     </>
   );
 };
+export default MovieDetails;

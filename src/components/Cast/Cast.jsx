@@ -18,19 +18,20 @@ const Cast = () => {
         console.log(error);
       }
     };
-    // controller.abort();
     getCastInfo();
+    return () => controller.abort();
   }, [movieId]);
+  console.log(casting);
   return (
     <ul>
       {casting &&
-        casting.cast.map(({ name, character, profile_path }) => {
+        casting.cast.map(({ id, name, character, profile_path }) => {
           return (
-            <li key={name}>
+            <li key={id}>
               <Image
                 imgLink={profile_path}
                 alt={name}
-                size={{ width: 365, height: 450 }}
+                size={{ width: 200, height: 300 }}
               />
 
               <p>{name}</p>

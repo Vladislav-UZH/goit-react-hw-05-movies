@@ -1,6 +1,8 @@
 import { NavLink, Outlet } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
+import { Suspense } from 'react';
+import Notification from 'components/Notification';
 const DetailedInfo = ({
   title,
   genres,
@@ -51,11 +53,14 @@ const DetailedInfo = ({
             <NavLink to={`reviews`}>Reviews</NavLink>
           </li>
         </ul>
-        <Outlet />
+        <Suspense fallback={<Notification title="Loading.." />}>
+          <Outlet />
+        </Suspense>
       </div>
     </div>
   );
 };
+
 DetailedInfo.propTypes = {
   title: PropTypes.string.isRequired,
   genres: PropTypes.array.isRequired,

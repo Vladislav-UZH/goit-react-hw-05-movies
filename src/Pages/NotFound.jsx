@@ -1,7 +1,7 @@
 import Notification from 'components/Notification';
 import { ThumbGif, MessageError } from './NotFound.styled';
 
-export const NotFound = () => {
+const NotFound = () => {
   return (
     <Notification>
       <MessageError>Error 404.. Page Not Found!</MessageError>
@@ -9,3 +9,4 @@ export const NotFound = () => {
     </Notification>
   );
 };
+export default NotFound;

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Thumb } from './Image.styled';
 const Image = ({ imgLink, alt, size }) => {
   const { width, height } = size;
-  const BASE_LINK = 'https://image.tmdb.org/t/p/w400/';
+  const BASE_LINK = 'https://image.tmdb.org/t/p/w400';
   const plug = `https://via.placeholder.com/${width}x${height}?text=Image+not+found`;
   return (
     <Thumb size={size}>

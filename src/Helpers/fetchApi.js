@@ -1,8 +1,8 @@
 import axios from 'axios';
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 const apiKey = '76cbb606f190fc237086ec33f1fd98a3';
-const fetchDayTrend = async (endpoints = `trending/movie/day`, options) => {
-  const resp = await axios.get(`${endpoints}?api_key=${apiKey}`, options);
+const fetchDayTrend = async options => {
+  const resp = await axios.get(`trending/movie/day?api_key=${apiKey}`, options);
   return resp.data;
 };
 const fetchMovieByQuery = async (query, options) => {

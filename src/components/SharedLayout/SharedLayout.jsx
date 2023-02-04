@@ -10,11 +10,12 @@ import {
 } from './SharedLayout.styled';
 import { FiFilm } from 'react-icons/fi';
 import { Outlet } from 'react-router-dom';
+import { Suspense } from 'react';
+import Notification from 'components/Notification';
 
 const SharedLayout = () => {
   return (
     <>
-      {' '}
       <Header>
         <Container>
           <FlexWrapper>
@@ -31,11 +32,13 @@ const SharedLayout = () => {
           </FlexWrapper>
         </Container>
       </Header>
-      <Main>
-        <Container>
-          <Outlet />
-        </Container>
-      </Main>
+      <Suspense fallback={<Notification message="Loading.." />}>
+        <Main>
+          <Container>
+            <Outlet />
+          </Container>
+        </Main>
+      </Suspense>
     </>
   );
 };
