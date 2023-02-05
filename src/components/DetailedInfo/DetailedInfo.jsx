@@ -2,7 +2,8 @@ import { NavLink, Outlet } from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 import { Suspense } from 'react';
-import Notification from 'components/Notification';
+// import Notification from 'components/Notification';
+import Loader from 'components/Loader';
 const DetailedInfo = ({
   title,
   genres,
@@ -53,7 +54,7 @@ const DetailedInfo = ({
             <NavLink to={`reviews`}>Reviews</NavLink>
           </li>
         </ul>
-        <Suspense fallback={<Notification title="Loading.." />}>
+        <Suspense fallback={<Loader /> /*<Notification title="Loading.." />*/}>
           <Outlet />
         </Suspense>
       </div>

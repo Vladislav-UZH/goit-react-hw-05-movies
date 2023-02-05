@@ -1,6 +1,7 @@
 import MovieList from 'components/MovieList';
 import SearchMovieBox from 'components/SearchMovieBox';
 import { fetchMovieByQuery } from 'Helpers/fetchApi';
+// import { useEffect } from 'react';
 import { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
@@ -12,7 +13,7 @@ const Movies = () => {
     const nextParams = !name ? {} : { name };
     setSearchParams(nextParams);
   };
-
+  // useEffect(() => {
   const getMovieByName = async name => {
     try {
       updateQueryString(name);
@@ -23,6 +24,8 @@ const Movies = () => {
       console.log(error);
     }
   };
+  //   getMovieByName();
+  // },[searchParams]);
 
   return (
     <>
