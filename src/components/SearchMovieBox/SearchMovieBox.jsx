@@ -2,6 +2,7 @@ import Button from 'components/Button';
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Form, Input, Label } from './SearchMovieBox.styled';
 
 const SearchMovieBox = ({ searchParams, onSubmit }) => {
   const [query, setQuery] = useState('');
@@ -16,27 +17,29 @@ const SearchMovieBox = ({ searchParams, onSubmit }) => {
     e.target.select();
   };
   return (
-    <form
+    <Form
       onSubmit={e => {
         e.preventDefault();
         const form = e.currentTarget;
         const value = form.elements.movieName.value;
+        // console.log(form.elements);
         return onSubmit(value);
       }}
     >
-      <label>
+      <Label>
         Enter name of your movie
-        <input
+        <Input
           name="movieName"
           type="text"
+          placeholder="Enter the movie name"
           onChange={handleChange}
           onFocus={handleFocus}
           autoComplete="true"
           value={query}
         />
-      </label>
+      </Label>
       <Button type="submit" variant="default" text="Search" />
-    </form>
+    </Form>
   );
 };
 SearchMovieBox.propTypes = {

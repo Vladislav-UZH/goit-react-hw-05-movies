@@ -1,3 +1,4 @@
+import { root } from 'jsStyledRoot/styledRoot';
 import styled from 'styled-components';
 const List = styled.ul`
   display: flex;
@@ -5,7 +6,7 @@ const List = styled.ul`
   gap: 15px;
   margin: 20px 0 0 0;
   padding: 10px 20px;
-  background-color: #32343b;
+  background-color: ${root.subElementBg};
 `;
 const Item = styled.li``;
 const TextContainer = styled.span`

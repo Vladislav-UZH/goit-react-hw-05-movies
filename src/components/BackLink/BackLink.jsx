@@ -1,7 +1,6 @@
 // import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { StyledLink } from './BackLink.styled';
 const BackLink = ({ to, children }) => {
-  return <NavLink to={to}>{children}</NavLink>;
+  return <StyledLink to={to}>{children}</StyledLink>;
 };
-BackLink.propTypes = {};
 export default BackLink;

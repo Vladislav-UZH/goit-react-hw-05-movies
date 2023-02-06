@@ -1,9 +1,28 @@
-import { NavLink, Outlet } from 'react-router-dom';
-
+import { Outlet } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Suspense } from 'react';
 // import Notification from 'components/Notification';
 import Loader from 'components/Loader';
+import {
+  Title,
+  Container,
+  Wrapper,
+  UserScore,
+  Vote,
+  OverviewWrapper,
+  OverviewLabel,
+  Overview,
+  GenresList,
+  GenresItem,
+  AdditionalInfoWrapper,
+  AdditionalInfoLabel,
+  Navigation,
+  StyledLink,
+  GenresWrapper,
+  GenresLabel,
+  ContentWrapper,
+} from './DetailedInfo.styled';
+import Image from 'components/Image';
 const DetailedInfo = ({
   title,
   genres,
@@ -16,49 +35,52 @@ const DetailedInfo = ({
     const stringed = String(result);
     return stringed;
   };
+
   return (
-    <div>
-      <div style={{ width: 400 }}>
-        <img
-          src={`https://image.tmdb.org/t/p/w400/${backdrop_path}`}
+    <Container>
+      {' '}
+      <Wrapper>
+        <Image
+          size={{ width: 400, height: 225 }}
+          imgLink={backdrop_path}
           alt={title}
         />
-      </div>
-      <div>
-        <h2>{title}</h2>
-        <span>
-          User score:
-          <p>{getAveragePercentageVote(vote_average)} %</p>
-        </span>
-        <div>
-          <h3>Overview</h3>
-          <p>{overview}</p>
-        </div>
-        <div>
-          <h4>Genres</h4>
-          <ul>
-            {genres.map(({ name, id }) => {
-              return <li key={id}>{name}</li>;
-            })}
-          </ul>
-        </div>
-      </div>
 
-      <div>
-        <p>Additional information</p>
-        <ul>
+        <ContentWrapper>
+          <Title>{title}</Title>
+          <UserScore>
+            User score:
+            <Vote>{getAveragePercentageVote(vote_average)}%</Vote>
+          </UserScore>
+          <OverviewWrapper>
+            <OverviewLabel>Overview</OverviewLabel>
+            <Overview>{overview}</Overview>
+          </OverviewWrapper>
+          <GenresWrapper>
+            <GenresLabel>Genres:</GenresLabel>
+            <GenresList>
+              {genres.map(({ name, id }) => {
+                return <GenresItem key={id}>{name}</GenresItem>;
+              })}
+            </GenresList>
+          </GenresWrapper>
+        </ContentWrapper>
+      </Wrapper>
+      <AdditionalInfoWrapper>
+        <AdditionalInfoLabel>Additional information</AdditionalInfoLabel>
+        <Navigation>
           <li>
-            <NavLink to={`cast`}>Cast</NavLink>
+            <StyledLink to={`cast`}>Cast</StyledLink>
           </li>
           <li>
-            <NavLink to={`reviews`}>Reviews</NavLink>
+            <StyledLink to={`reviews`}>Reviews</StyledLink>
           </li>
-        </ul>
+        </Navigation>
         <Suspense fallback={<Loader /> /*<Notification title="Loading.." />*/}>
           <Outlet />
         </Suspense>
-      </div>
-    </div>
+      </AdditionalInfoWrapper>
+    </Container>
   );
 };
 
