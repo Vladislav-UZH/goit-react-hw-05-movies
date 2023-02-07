@@ -21,7 +21,6 @@ const Cast = () => {
     getCastInfo();
     return () => controller.abort();
   }, [movieId]);
-  console.log(casting);
   return (
     <ul>
       {casting &&

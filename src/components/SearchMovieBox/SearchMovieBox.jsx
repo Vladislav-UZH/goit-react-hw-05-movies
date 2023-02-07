@@ -43,6 +43,7 @@ const SearchMovieBox = ({ searchParams, onSubmit }) => {
   );
 };
 SearchMovieBox.propTypes = {
+  searchParams: PropTypes.object,
   onSubmit: PropTypes.func.isRequired,
 };
 export default SearchMovieBox;

@@ -17,7 +17,7 @@ const MovieDetails = () => {
     const option = { signal: controller.signal };
     const getMovieDetails = async () => {
       try {
-        const resp = await fetchMovieDetsById(movieId, option);
+        const resp = await fetchMovieDetsById(movieId, '', option);
         setMovieDetails(resp);
       } catch (error) {
         console.log(error);

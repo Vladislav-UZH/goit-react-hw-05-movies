@@ -1,4 +1,6 @@
 import Image from 'components/Image';
+import PropTypes from 'prop-types';
+
 import { useLocation } from 'react-router-dom';
 import { Item, FilmWrapper, Title, MovieLink } from './MovieItem.styled';
 const MovieItem = ({ poster, title, id }) => {
@@ -18,5 +20,10 @@ const MovieItem = ({ poster, title, id }) => {
       </MovieLink>
     </Item>
   );
+};
+MovieItem.propTypes = {
+  id: PropTypes.number.isRequired,
+  poster: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
 };
 export default MovieItem;
