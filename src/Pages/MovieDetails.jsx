@@ -3,15 +3,15 @@ import DetailedInfo from 'components/DetailedInfo';
 import { fetchMovieDetsById } from 'Helpers/fetchApi';
 import { useEffect, useRef } from 'react';
 import { useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
 
 const MovieDetails = () => {
   const [movieDetails, setMovieDetails] = useState(null);
   const { movieId } = useParams();
   const location = useLocation();
   const backLinkHref = location.state?.from ?? '/';
+  const navigate = useNavigate();
   const locRef = useRef(backLinkHref);
-
   useEffect(() => {
     const controller = new AbortController();
     const option = { signal: controller.signal };
@@ -26,10 +26,14 @@ const MovieDetails = () => {
     getMovieDetails();
     return () => controller.abort();
   }, [movieId]);
-
+  const handleGoBack = () => {
+    console.log(navigate(backLinkHref));
+  };
   return (
     <>
-      <BackLink to={locRef.current}>Go Back</BackLink>
+      <BackLink onClick={handleGoBack} to={locRef.current}>
+        Go Back
+      </BackLink>
       {movieDetails && (
         <DetailedInfo
           title={movieDetails.title}

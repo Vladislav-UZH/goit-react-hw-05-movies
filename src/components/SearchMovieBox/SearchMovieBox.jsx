@@ -22,7 +22,6 @@ const SearchMovieBox = ({ searchParams, onSubmit }) => {
         e.preventDefault();
         const form = e.currentTarget;
         const value = form.elements.movieName.value;
-        // console.log(form.elements);
         return onSubmit(value);
       }}
     >
