@@ -27,7 +27,7 @@ const MovieDetails = () => {
     return () => controller.abort();
   }, [movieId]);
   const handleGoBack = () => {
-    console.log(navigate(backLinkHref));
+    navigate(backLinkHref);
   };
   return (
     <>
